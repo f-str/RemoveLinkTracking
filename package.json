@@ -1,0 +1,30 @@
+{
+    "name": "removelinktracking",
+    "license": "MIT",
+    "author": "Fload fload2000@protonmail.com",
+    "version": "1.0.0",
+    "fullName": "RemoveLinkTracking",
+    "id": "jid1-yRtlFKrTMBrAtQ",
+    "description": "Removes tracking parameters in links.",
+    "dependencies": {},
+    "scripts": {
+        "build": "web-ext build --overwrite-dest --source-dir src",
+        "lint": "web-ext lint --source-dir src",
+        "start": "web-ext run --source-dir src --browser-console",
+        "debug": "web-ext run --source-dir src --browser-console --verbose",
+        "test": "karma start",
+        "test:watch": "karma start --no-single-run",
+        "test:debug": "karma start --no-single-run --browsers Firefox"
+    },
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "karma": "^2.0.0",
+        "karma-chai": "^0.1.0",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-firefox-launcher": "^1.0.1",
+        "karma-mocha": "^1.3.0",
+        "mocha": "^5.0.0",
+        "prettier": "^1.7.4",
+        "web-ext": "^2.2.2"
+    }
+}
