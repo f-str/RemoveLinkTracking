@@ -27,17 +27,7 @@ eqrecqid
 
 ## How to install?
 
-- [Install on Firefox](https://addons.mozilla.org/firefox/addon/au-revoir-utm/)
-- [Install on Chrome](https://chrome.google.com/webstore/detail/au-revoir-utm/jaibjcnlipcgpfbmedodbcddcoflhmho)
-
-## Examples
-
-
-
-Browser Add-On for less link tracking.
-How annoying are those "utm_source=rss&utm_medium=rss&utm_campaign=rss" in URLs ? Right!
-
-So this extension removes them and prevents you from being tracked.
+- [Install on Firefox](https://addons.mozilla.org/de/firefox/addon/remove-link-tracking/)
 
 
 # Getting started
@@ -51,6 +41,10 @@ $ yarn start
 # Running the tests
 
 Depending on the task, you can run `yarn test`, `yarn debug`, `yarn test:watch` or `yarn test:debug`
+
+# Found another tracking parameter which is not considered by the addon?
+
+Feel free to open an issue or make a pull request.
 
 # License
 
