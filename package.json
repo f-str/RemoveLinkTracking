@@ -2,7 +2,7 @@
     "name": "removelinktracking",
     "license": "MIT",
     "author": "Fload fload2000@protonmail.com",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "fullName": "RemoveLinkTracking",
     "id": "jid1-yRtlFKrTMBrAtQ",
     "description": "Removes tracking parameters in links.",

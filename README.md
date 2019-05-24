@@ -22,7 +22,12 @@ ref
 src
 ext
 _trk
+mcID
+tt_
 eqrecqid
+fbclid
+yclid
+gclid
 ```
 
 ## How to install?

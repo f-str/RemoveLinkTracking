@@ -1,13 +1,16 @@
 const Keywords = ['utm_',
                   'wt_',
-                  'gcl',    // gclid (Alternate)
+                  'gcl',
                   'ref',
                   'src',
                   'ext',
                   '_trk',
-                  'mcID',   // Humblebundle Mail
-                  'tt_',    // Twitch Mail
-                  'eqrecqid'];
+                  'mcID',
+                  'tt_',
+                  'eqrecqid',
+                  'fbclid',
+                  'yclid',
+                  'gclid'];
 
 class REMOVER {
 
