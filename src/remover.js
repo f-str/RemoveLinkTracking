@@ -9,7 +9,8 @@ const Keywords = ['utm_',
                   'eqrecqid',
                   'fbclid',
                   'yclid',
-                  'gclid'];
+                  'gclid',
+                  'wc_mc'];
 
 class REMOVER {
 
