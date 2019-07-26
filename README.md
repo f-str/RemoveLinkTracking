@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/Fload2000/RemoveLinkTracking.svg?branch=master)](https://travis-ci.com/Fload2000/RemoveLinkTracking)
 # RemoveLinkTracking - Overview
 
 ## What is link tracking?
