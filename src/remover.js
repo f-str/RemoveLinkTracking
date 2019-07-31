@@ -10,7 +10,8 @@ const Keywords = ['utm_',
                   'fbclid',
                   'yclid',
                   'gclid',
-                  'wc_mc'];
+                  'wc_mc',
+                  'amp'];
 
 class REMOVER {
 
