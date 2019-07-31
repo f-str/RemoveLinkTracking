@@ -28,6 +28,8 @@ eqrecqid
 fbclid
 yclid
 gclid
+wc_mc
+amp
 ```
 
 ## How to install?
