@@ -30,6 +30,9 @@ yclid
 gclid
 wc_mc
 amp
+clickin
+AffiliateID
+campid
 ```
 
 ## How to install?

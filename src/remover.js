@@ -11,7 +11,10 @@ const Keywords = ['utm_',
                   'yclid',
                   'gclid',
                   'wc_mc',
-                  'amp'];
+                  'amp',
+                  'clickin',
+                  'AffiliateID',
+                  'campid'];
 
 class REMOVER {
 
