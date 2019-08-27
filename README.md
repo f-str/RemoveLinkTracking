@@ -33,6 +33,7 @@ amp
 clickin
 AffiliateID
 campid
+pf_rd
 ```
 
 ## How to install?
