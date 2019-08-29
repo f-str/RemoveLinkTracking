@@ -34,6 +34,7 @@ clickin
 AffiliateID
 campid
 pf_rd
+hmb_
 ```
 
 ## How to install?

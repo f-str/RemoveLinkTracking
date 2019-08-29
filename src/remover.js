@@ -15,7 +15,8 @@ const Keywords = ['utm_',
                   'clickin',
                   'AffiliateID',
                   'campid',
-                  'pf_rd'];
+                  'pf_rd',
+                  'hmb_'];
 
 class REMOVER {
 
