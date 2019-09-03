@@ -35,6 +35,7 @@ AffiliateID
 campid
 pf_rd
 hmb_
+igshid
 ```
 
 ## How to install?
