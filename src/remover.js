@@ -18,7 +18,8 @@ const Keywords = ['utm_',
                   'pf_rd',
                   'hmb_',
                   'igshid',
-                  'fb_'];
+                  'fb_',
+                  'service'];
 
 class REMOVER {
 
