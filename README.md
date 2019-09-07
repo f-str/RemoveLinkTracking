@@ -18,7 +18,6 @@ If a parameter includes one of the following strings it will be removed:
 ```
 utm_
 wt_
-ref
 src
 ext
 _trk

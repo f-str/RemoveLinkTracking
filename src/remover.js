@@ -1,6 +1,6 @@
 const Keywords = ['utm_',
                   'wt_',
-                  'ref',
+                  //'ref',
                   'src',
                   'ext',
                   '_trk',
