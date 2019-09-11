@@ -41,7 +41,8 @@ class REMOVER {
       console.log(param);
       for (let keyword of Keywords) {
         if(param.startsWith(keyword))
-          parsedURL.searchParams.delete(param)
+          parsedURL.searchParams.delete(param);
+          Console.log("Removed: " + param)
       }
     }
 
