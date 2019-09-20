@@ -56,5 +56,4 @@ class REMOVER {
 
     return parsedURL.toString();
   }
-
 }

@@ -4,7 +4,7 @@
     "version": "1.0.5",
     "description": "Removes tracking parameter in links",
     "homepage_url": "https://github.com/Fload2000/RemoveLinkTracking",
-    "permissions": ["webRequest", "webRequestBlocking", "storage", "<all_urls>"],
+    "permissions": ["webRequest", "webRequestBlocking", "storage", "tabs", "<all_urls>"],
     "browser_action": {
         "browser_style": true,
         "default_icon": {
