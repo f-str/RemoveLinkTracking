@@ -6,9 +6,7 @@
     "fullName": "RemoveLinkTracking",
     "id": "jid1-yRtlFKrTMBrAtQ",
     "description": "Removes tracking parameters in links.",
-    "dependencies": {
-
-    },
+    "dependencies": {},
     "scripts": {
         "build": "web-ext build --overwrite-dest --source-dir src",
         "lint": "web-ext lint --source-dir src",
@@ -22,14 +20,14 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "karma": "^2.0.0",
-        "mocha": "^5.0.0",
-        "webpack": "^4.39.3",
         "karma-chai": "^0.1.0",
         "karma-chrome-launcher": "^2.2.0",
         "karma-firefox-launcher": "^1.0.1",
         "karma-mocha": "^1.3.0",
         "karma-webpack": "^4.0.2",
+        "mocha": "^5.0.0",
         "prettier": "^1.7.4",
-        "web-ext": "^2.2.2"
+        "web-ext": "^2.2.2",
+        "webpack": "^4.39.3"
     }
 }
