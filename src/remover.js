@@ -38,7 +38,6 @@ class REMOVER {
     const parsedURL = new URL(url);
 
     for (let param of [...parsedURL.searchParams.keys()]) {
-      console.log(param);
       for (let keyword of Keywords) {
         if(param.startsWith(keyword))
           parsedURL.searchParams.delete(param);
