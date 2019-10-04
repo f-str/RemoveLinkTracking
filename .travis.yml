@@ -11,6 +11,9 @@ cache:
 install:
     - yarn install
 
+addons:
+    firefox: latest
+
 script:
     - yarn lint
     - yarn build
