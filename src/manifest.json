@@ -5,11 +5,19 @@
     "description": "Removes tracking parameter in links",
     "homepage_url": "https://github.com/Fload2000/RemoveLinkTracking",
     "permissions": ["webRequest", "webRequestBlocking", "storage", "tabs", "<all_urls>"],
+    "icons": {
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "64": "img/icon64.png",
+        "96": "img/icon96.png"
+    },
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-            "16": "icon16.gif",
-            "64": "icon.svg"
+            "16": "img/icon16.png",
+            "48": "img/icon48.png",
+            "64": "img/icon64.png",
+            "96": "img/icon96.png"
         },
         "default_popup": "popup.html"
     },
