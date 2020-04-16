@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Fload2000/RemoveLinkTracking.svg?branch=master)](https://travis-ci.com/Fload2000/RemoveLinkTracking)
-# RemoveLinkTracking - Overview
+# ![logo](https://github.com/Fload2000/RemoveLinkTracking/raw/master/src/img/icon32.png) RemoveLinkTracking - Overview
 
 ## What is link tracking?
 Link tracking is a special kind of tracking, where users were tracked by clicking on links.
@@ -18,6 +18,7 @@ If a parameter includes one of the following strings it will be removed:
 ```
 utm_
 wt_
+refID
 src
 ext
 _trk
@@ -37,6 +38,10 @@ hmb_
 igshid
 fb
 service
+algo_
+spm
+btsid
+ws_ab_
 ```
 
 ## How to install?
@@ -61,10 +66,11 @@ Depending on the task, you can run `yarn test`, `yarn debug`, `yarn test:watch` 
 Feel free to open an issue or make a pull request.
 
 # Next goals
-- Appropriate tests for parameter
-- Option to opt out parameters for certain domains
-- Logo
-- GitHub CI integration
+- [ ]Appropriate tests for parameter
+- [x] Option to opt out parameters for certain domains
+- [x] Logo
+- [ ] GitHub CI integration
+- [ ] CodeCov integeration
 
 # License
 
