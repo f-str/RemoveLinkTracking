@@ -1,6 +1,6 @@
 const Keywords = ['utm_',
                   'wt_',
-                  //'ref',
+                  'refID',
                   'src',
                   'ext',
                   '_trk',
@@ -19,38 +19,40 @@ const Keywords = ['utm_',
                   'hmb_',
                   'igshid',
                   'fb',
-                  'service'];
+                  'service',
+                  'algo_',
+                  'spm',
+                  'btsid',
+                  'ws_ab_'];
 
 class REMOVER {
 
-  static mayContain(url) {
-    for (let keyword of Keywords) {
-      if (url.includes(keyword))
-        return true
-    }
-  }
-
-  static remove(url) {
-    const parsedURL = new URL(url);
-
-    for (let param of [...parsedURL.searchParams.keys()]) {
-      console.log(param);
-      for (let keyword of Keywords) {
-        if(param.startsWith(keyword))
-          parsedURL.searchParams.delete(param);
-          Console.log("Removed: " + param)
-      }
+    static mayContain(url) {
+            for (let keyword of Keywords) {
+                if (url.includes(keyword))
+                    return true
+            }
+        return false;
     }
 
-    const parsedFragment = new URLSearchParams(parsedURL.hash.substring(1));
-    for (let param of [...parsedFragment.keys()]) {
-      for (let keyword of Keywords) {
-        if(param.startsWith(keyword))
-          parsedFragment.delete(param)
-      }
+    static remove(url) {
+        const parsedURL = new URL(url);
+
+        for (let param of [...parsedURL.searchParams.keys()]) {
+            for (let keyword of Keywords) {
+                if (param.startsWith(keyword))
+                    parsedURL.searchParams.delete(param);
+            }
+        }
+
+        const parsedFragment = new URLSearchParams(parsedURL.hash.substring(1));
+        for (let param of [...parsedFragment.keys()]) {
+            for (let keyword of Keywords) {
+                if (param.startsWith(keyword))
+                    parsedFragment.delete(param)
+            }
+        }
+
+        return parsedURL.toString();
     }
-
-    return parsedURL.toString();
-  }
-
 }
