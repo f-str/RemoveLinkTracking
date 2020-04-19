@@ -71,6 +71,7 @@ Feel free to open an issue or make a pull request.
 - [x] Logo
 - [ ] GitHub CI integration
 - [ ] CodeCov integeration
+- [ ] Popup
 
 # License
 
