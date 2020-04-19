@@ -1,4 +1,5 @@
 const browser = window.browser || window.chrome;
+
 browser.webRequest.onBeforeRequest.addListener(
     removeTracking,
     {urls: ['<all_urls>'], types: ['main_frame', 'sub_frame']},
