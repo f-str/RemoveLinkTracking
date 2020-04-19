@@ -66,7 +66,7 @@ Depending on the task, you can run `yarn test`, `yarn debug`, `yarn test:watch` 
 Feel free to open an issue or make a pull request.
 
 # Next goals
-- [ ]Appropriate tests for parameter
+- [ ] Appropriate tests for parameter
 - [x] Option to opt out parameters for certain domains
 - [x] Logo
 - [ ] GitHub CI integration
