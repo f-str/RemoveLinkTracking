@@ -75,6 +75,7 @@ Feel free to open an issue or make a pull request.
 - [ ] GitHub CI integration
 - [ ] CodeCov integeration
 - [ ] Popup
+- [ ] Option to Enable/Disable certain parameter
 
 # License
 
