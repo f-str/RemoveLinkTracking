@@ -23,7 +23,10 @@ const Keywords = ['utm_',
                   'algo_',
                   'spm',
                   'btsid',
-                  'ws_ab_'];
+                  'ws_ab_',
+                  'action',
+                  'module',
+                  'pgtype'];
 
 class REMOVER {
 
