@@ -15,6 +15,6 @@
         "page": "options.html"
     },
     "background": {
-        "scripts": ["remover.js", "background.js"]
+        "scripts": ["keywords.js", "remover.js", "background.js"]
     }
 }

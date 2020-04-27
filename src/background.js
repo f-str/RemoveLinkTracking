@@ -6,12 +6,22 @@ browser.webRequest.onBeforeRequest.addListener(
     ['blocking']
 );
 
+// Generate map from keywords and true
+const paramMap = new Map();
+for(let keyword of Keywords) {
+    paramMap.set(keyword, true)
+}
+
 // Set the default empty list on installation.
 browser.runtime.onInstalled.addListener(() => {
     browser.storage.local.set({
-        exceptions: []
+        exceptions: [],
+        parameters: JSON.stringify(Array.from(paramMap.entries())),
+        active: Keywords
     });
 });
+
+// To get map from storage: map = new Map(JSON.parse(localStorage.myMap));
 
 let exceptions = [];
 
