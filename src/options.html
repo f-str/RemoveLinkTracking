@@ -1,18 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- TODO do css design -->
     <head>
         <meta charset="UTF-8">
         <title>Options - RemoveLinkTracking</title>
+        <link rel="stylesheet" type="text/css" href="options.css">
+        <link rel="stylesheet" type="text/css" href="slider.css"/>
     </head>
     <body>
-        <span>Enter all URLs which should allow link tracking (only one url per line):</span>
-        <form>
-            <section>
-                <label for="exception-url"></label>
-                <textarea id="exception-url" rows="10" cols="50"></textarea>
-            </section>
-        </form>
+        <!-- Tab links -->
+        <div class="tab">
+            <button id="parameterTab" class="tablinks">Parameter</button>
+            <button id="exceptionsTab" class="tablinks">Exceptions</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="parameter" class="tabcontent">
+            <table id="paramTable" style="width:100%">
+                <tr>
+                    <th>Parameter-Keyword</th>
+                    <th>Active</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="exceptions" class="tabcontent">
+            <span>Enter all URLs which should allow link tracking (only one url per line):</span>
+            <form>
+                <section>
+                    <label for="exception-url"></label>
+                    <textarea id="exception-url" rows="10" cols="50"></textarea>
+                </section>
+            </form>
+        </div>
+
+        <script type="text/javascript" src="util.js"></script>
         <script type="text/javascript" src="options.js"></script>
     </body>
 </html>
