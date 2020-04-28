@@ -21,8 +21,6 @@ browser.runtime.onInstalled.addListener(() => {
     });
 });
 
-// To get map from storage: map = new Map(JSON.parse(localStorage.myMap));
-
 let exceptions = [];
 
 // Get the stored list of exceptions
