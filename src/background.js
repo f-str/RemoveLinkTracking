@@ -17,7 +17,8 @@ browser.runtime.onInstalled.addListener(() => {
     browser.storage.local.set({
         exceptions: [],
         parameters: JSON.stringify(Array.from(paramMap.entries())),
-        active: Keywords
+        active: Keywords,
+        ownParam: []
     });
 });
 

@@ -88,6 +88,22 @@ function clicked(elementId) {
     });
 }
 
+const addButton = document.getElementById("addButton");
+addButton.addEventListener("click", () => {addParameter()})
+
+function addParameter() {
+    const param = document.getElementById("addParameter").value;
+    parameterMap.set(param, true);
+    activeParams.push(param);
+    addParamToList(true, param);
+
+    browser.storage.local.set({
+        parameters: JSON.stringify(Array.from(parameterMap)),
+        active: activeParams,
+        ownParam: [true]
+    })
+}
+
 const blockedHostsTextArea = document.querySelector("#exception-url");
 
 // Store the currently selected settings using browser.storage.local.
