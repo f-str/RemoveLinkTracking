@@ -1,19 +1,7 @@
-Array.prototype.remove = function() {
-    let what, a = arguments, L = a.length, ax;
-    while (L && this.length) {
-        what = a[--L];
-        while ((ax = this.indexOf(what)) !== -1) {
-            this.splice(ax, 1);
-        }
-    }
-    return this;
-};
-
 const urlbox = document.getElementById("link");
 const checkbox = document.getElementById("checkbox");
 checkbox.addEventListener("click", clicked);
 window.onload = init;
-
 
 let exceptions = [];
 function loadData() {
@@ -25,14 +13,10 @@ function loadData() {
     });
 }
 
-function Sleep(milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
-}
-
 function setCurrentURL() {
     browser.tabs.query({currentWindow: true, active: true})
         .then(tabs => {
-            urlbox.value =  tabs[0].url
+            urlbox.value = tabs[0].url
         })
 }
 
