@@ -13,13 +13,15 @@ for(let keyword of Keywords) {
 }
 
 // Set the default empty list on installation.
-browser.runtime.onInstalled.addListener(() => {
-    browser.storage.local.set({
-        exceptions: [],
-        parameters: JSON.stringify(Array.from(paramMap.entries())),
-        active: Keywords,
-        ownParam: []
-    });
+browser.runtime.onInstalled.addListener((details) => {
+    if (details.reason === 'install') {
+        browser.storage.local.set({
+            exceptions: [],
+            parameters: JSON.stringify(Array.from(paramMap.entries())),
+            active: Keywords,
+            ownParam: []
+        });
+    }
 });
 
 let exceptions = [];
