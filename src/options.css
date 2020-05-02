@@ -44,3 +44,14 @@
 table, th, td {
     border: 1px solid black;
 }
+
+img {
+    -webkit-filter: grayscale(1);
+    -webkit-transition: all .1s ease-in-out;
+}
+
+img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);
+}

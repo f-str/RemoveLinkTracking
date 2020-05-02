@@ -52,10 +52,20 @@ function addParamToList(value, key) {
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
 
+    // Create img for remove icon
+    const img = document.createElement("IMG");
+    img.setAttribute("src", "img/remove16.png");
+    img.style.display = "inline";
+    img.style.marginLeft = "5px";
+    img.style.marginRight = "10px";
+    img.addEventListener("click", ()=>{removeParameter(key)})
+
     // Create p element for key
     const p = document.createElement("P");
     p.setAttribute("id", "key-" + key)
+    p.style.display = "inline-block";
     p.innerText = key;
+    cell1.appendChild(img);
     cell1.appendChild(p);
 
     // Create fancy toggle button
@@ -104,6 +114,17 @@ function addParameter() {
         active: activeParams,
         ownParam: [true]
     })
+}
+
+function removeParameter(parameter) {
+    parameterMap.delete(parameter);
+    activeParams.remove(parameter);
+
+    browser.storage.local.set({
+        parameters: JSON.stringify(Array.from(parameterMap)),
+        active: activeParams,
+    })
+    location.reload();
 }
 
 const blockedHostsTextArea = document.querySelector("#exception-url");
