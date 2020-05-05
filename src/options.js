@@ -112,7 +112,7 @@ function addParameter() {
     browser.storage.local.set({
         parameters: JSON.stringify(Array.from(parameterMap)),
         active: activeParams,
-        ownParam: [true]
+        ownParam: true
     })
 }
 
