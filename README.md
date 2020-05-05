@@ -78,6 +78,7 @@ Feel free to open an issue or make a pull request.
 - [ ] Option to Enable/Disable certain parameter ([#11](https://github.com/Fload2000/RemoveLinkTracking/issues/11))
 - [ ] Indicator icon for modified URLs ([#12](https://github.com/Fload2000/RemoveLinkTracking/issues/12))
 - [ ] Release for Chrome
+- [ ] Option to set domain specific parameter
 
 # License
 
