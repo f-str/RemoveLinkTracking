@@ -19,7 +19,7 @@ browser.runtime.onInstalled.addListener((details) => {
             exceptions: [],
             parameters: JSON.stringify(Array.from(paramMap.entries())),
             active: Keywords,
-            ownParam: []
+            ownParam: false
         });
     }
 });
@@ -35,7 +35,9 @@ browser.storage.local.get(data => {
 
 // Listen for changes in the exceptions list
 browser.storage.onChanged.addListener(changeData => {
-    exceptions = changeData.exceptions.newValue;
+    if (changeData.exceptions != null) {
+        exceptions = changeData.exceptions.newValue;
+    }
 });
 
 function removeTracking({url}) {

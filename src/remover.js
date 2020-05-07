@@ -9,7 +9,9 @@ browser.storage.local.get(data => {
 
 // Listen for changes in the active list
 browser.storage.onChanged.addListener(changeData => {
-    keywords = changeData.active.newValue;
+    if(changeData.active != null) {
+        keywords = changeData.active.newValue;
+    }
 });
 
 class REMOVER {
