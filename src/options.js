@@ -46,6 +46,32 @@ function getActive(restoredSettings) {
 // On opening the options page, fetch active parameters
 browser.storage.local.get().then(getActive, onError);
 
+
+// Get ownParam from local storage
+let ownParam;
+function getOwnParam(restoredSettings) {
+    ownParam = restoredSettings.ownParam.valueOf();
+
+    // display banner only when ownParams flag is set
+    document.getElementById("banner").style.display = ownParam ? "block" : "none";
+}
+
+// On opening the options page, fetch ownParam flag
+browser.storage.local.get().then(getOwnParam, onError);
+
+// Add click action to banner close button
+const bannerClose = document.getElementById("banner-close");
+bannerClose.addEventListener("click", () => {closeBanner()})
+
+function closeBanner() {
+    document.getElementById("banner").style.display = "none";
+
+    // set the ownParam flag to false so the banner does not get displayed in the future until a new parameter is added
+    browser.storage.local.set({
+        ownParam: false
+    });
+}
+
 function addParamToList(value, key) {
     const table = document.getElementById("paramTable");
     const row = table.insertRow(table.tBodies[0].rows.length);
@@ -109,6 +135,7 @@ function addParameter() {
     parameterMap.set(param, true);
     activeParams.push(param);
     addParamToList(true, param);
+    document.getElementById("banner").style.display = "block";
 
     browser.storage.local.set({
         parameters: JSON.stringify(Array.from(parameterMap)),

@@ -55,3 +55,17 @@ img:hover {
     -webkit-filter: grayscale(0);
     -webkit-transform: scale(1.01);
 }
+
+#banner {
+    display: none;
+    background-color: #2196F3;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+#banner-close {
+    position: absolute;
+    top: 54px;
+    right: 25px;
+}
