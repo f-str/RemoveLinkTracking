@@ -103,7 +103,8 @@ addButton.addEventListener("click", () => {addParameter()})
 
 function addParameter() {
     const inputBox = document.getElementById("addParameter");
-    const param = inputBox.value;
+    const param = inputBox.value.trim();
+    if(param === '') return;
     inputBox.value = '';
     parameterMap.set(param, true);
     activeParams.push(param);
