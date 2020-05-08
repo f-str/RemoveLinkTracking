@@ -45,6 +45,9 @@ ws_ab_
 action
 module
 pgtype
+cid
+sclid
+key-sofort_
 ```
 
 ## How to install?
@@ -75,8 +78,10 @@ Feel free to open an issue or make a pull request.
 - [ ] GitHub CI integration
 - [ ] CodeCov integeration
 - [ ] Popup
-- [ ] Option to Enable/Disable certain parameter ([#11](https://github.com/Fload2000/RemoveLinkTracking/issues/11))
+- [X] Option to Enable/Disable certain parameter ([#11](https://github.com/Fload2000/RemoveLinkTracking/issues/11))
 - [ ] Indicator icon for modified URLs ([#12](https://github.com/Fload2000/RemoveLinkTracking/issues/12))
+- [ ] Release for Chrome
+- [ ] Option to set domain specific parameter ([#13](https://github.com/Fload2000/RemoveLinkTracking/issues/13))
 
 # License
 

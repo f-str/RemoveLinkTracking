@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "RemoveLinkTracking",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Removes tracking parameter in links",
     "homepage_url": "https://github.com/Fload2000/RemoveLinkTracking",
     "permissions": ["webRequest", "webRequestBlocking", "storage", "tabs", "<all_urls>"],
@@ -15,6 +15,6 @@
         "page": "options.html"
     },
     "background": {
-        "scripts": ["remover.js", "background.js"]
+        "scripts": ["util.js", "keywords.js", "remover.js", "background.js"]
     }
 }

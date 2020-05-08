@@ -1,37 +1,23 @@
-const Keywords = ['utm_',
-                  'wt_',
-                  'refID',
-                  'src',
-                  'ext',
-                  '_trk',
-                  'mcID',
-                  'tt_',
-                  'eqrecqid',
-                  'fbclid',
-                  'yclid',
-                  'gclid',
-                  'wc_mc',
-                  'amp',
-                  'clickin',
-                  'AffiliateID',
-                  'campid',
-                  'pf_rd',
-                  'hmb_',
-                  'igshid',
-                  'fb',
-                  'service',
-                  'algo_',
-                  'spm',
-                  'btsid',
-                  'ws_ab_',
-                  'action',
-                  'module',
-                  'pgtype'];
+let keywords = [];
+
+// Get the stored list of active keywords
+browser.storage.local.get(data => {
+    if (data.active) {
+        keywords = data.active;
+    }
+});
+
+// Listen for changes in the active list
+browser.storage.onChanged.addListener(changeData => {
+    if(changeData.active != null) {
+        keywords = changeData.active.newValue;
+    }
+});
 
 class REMOVER {
 
     static mayContain(url) {
-            for (let keyword of Keywords) {
+            for (let keyword of keywords) {
                 if (url.includes(keyword))
                     return true
             }
@@ -42,7 +28,7 @@ class REMOVER {
         const parsedURL = new URL(url);
 
         for (let param of [...parsedURL.searchParams.keys()]) {
-            for (let keyword of Keywords) {
+            for (let keyword of keywords) {
                 if (param.startsWith(keyword))
                     parsedURL.searchParams.delete(param);
             }
@@ -50,7 +36,7 @@ class REMOVER {
 
         const parsedFragment = new URLSearchParams(parsedURL.hash.substring(1));
         for (let param of [...parsedFragment.keys()]) {
-            for (let keyword of Keywords) {
+            for (let keyword of keywords) {
                 if (param.startsWith(keyword))
                     parsedFragment.delete(param)
             }

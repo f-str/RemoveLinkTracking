@@ -6,11 +6,22 @@ browser.webRequest.onBeforeRequest.addListener(
     ['blocking']
 );
 
+// Generate map from keywords and true
+const paramMap = new Map();
+for(let keyword of Keywords) {
+    paramMap.set(keyword, true)
+}
+
 // Set the default empty list on installation.
-browser.runtime.onInstalled.addListener(() => {
-    browser.storage.local.set({
-        exceptions: []
-    });
+browser.runtime.onInstalled.addListener((details) => {
+    if (details.reason === 'install') {
+        browser.storage.local.set({
+            exceptions: [],
+            parameters: JSON.stringify(Array.from(paramMap.entries())),
+            active: Keywords,
+            ownParam: false
+        });
+    }
 });
 
 let exceptions = [];
@@ -24,7 +35,9 @@ browser.storage.local.get(data => {
 
 // Listen for changes in the exceptions list
 browser.storage.onChanged.addListener(changeData => {
-    exceptions = changeData.exceptions.newValue;
+    if (changeData.exceptions != null) {
+        exceptions = changeData.exceptions.newValue;
+    }
 });
 
 function removeTracking({url}) {
