@@ -26,4 +26,7 @@ const Keywords = ['utm_',
                   'ws_ab_',
                   'action',
                   'module',
-                  'pgtype'];
+                  'pgtype',
+                  'cid',
+                  'sclid',
+                  "key-sofort_"];
