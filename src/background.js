@@ -21,6 +21,13 @@ browser.runtime.onInstalled.addListener((details) => {
             active: Keywords,
             ownParam: false
         });
+    } else {
+        // all new fields
+        browser.storage.local.set({
+            parameters: JSON.stringify(Array.from(paramMap.entries())),
+            active: Keywords,
+            ownParam: false
+        });
     }
 });
 
