@@ -19,14 +19,14 @@ browser.runtime.onInstalled.addListener((details) => {
             exceptions: [],
             parameters: JSON.stringify(Array.from(paramMap.entries())),
             active: Keywords,
-            ownParam: false
+            ownParam: false,
+            logs: []
         });
     } else {
+        // TODO -> comment in
         // all new fields
         browser.storage.local.set({
-            parameters: JSON.stringify(Array.from(paramMap.entries())),
-            active: Keywords,
-            ownParam: false
+            //logs: []
         });
     }
 });

@@ -11,6 +11,8 @@
         <div class="tab">
             <button id="parameterTab" class="tablinks">Parameter</button>
             <button id="exceptionsTab" class="tablinks">Exceptions</button>
+            <button id="logsTab" class="tablinks">Logs</button>
+            <button id="settingsTab" class="tablinks">Settings</button>
         </div>
 
         <!-- Tab content -->
@@ -47,6 +49,20 @@
                     <textarea id="exception-url" rows="10" cols="50"></textarea>
                 </section>
             </form>
+        </div>
+
+        <div id="logs" class="tabcontent">
+            <table id="logTable" style="width:100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Url</th>
+                    <th>Removed Parameter</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="settings" class="tabcontent">
+
         </div>
 
         <script type="text/javascript" src="util.js"></script>

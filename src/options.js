@@ -2,6 +2,10 @@ const parameterTab = document.getElementById("parameterTab")
 parameterTab.addEventListener("click", () => {opentab('parameter')})
 const exceptionstab = document.getElementById("exceptionsTab")
 exceptionstab.addEventListener("click", () => {opentab('exceptions')})
+const logstab = document.getElementById("logsTab")
+logstab.addEventListener("click", () => {opentab('logs')})
+const settingstab = document.getElementById("settingsTab")
+settingstab.addEventListener("click", () => {opentab('settings')})
 
 // Open parameter tab by default
 parameterTab.click()
@@ -180,3 +184,55 @@ browser.storage.local.get().then(updateUI, onError);
 
 // Whenever the contents of the textarea changes, save the new values
 blockedHostsTextArea.addEventListener("change", storeSettings);
+
+// ---- Logging ----
+
+// Get active parameters from local storage
+let logs = [];
+function getLogs(restoredSettings) {
+    logs = restoredSettings.logs;
+    logs.reverse();
+    logs.forEach(addLogsToList)
+}
+
+// On opening the options page, fetch logs
+browser.storage.local.get().then(getLogs, onError);
+
+// Listen for changes in the logs
+browser.storage.onChanged.addListener(changeData => {
+    if (changeData.logs != null) {
+        logs = changeData.logs.newValue;
+    }
+});
+
+function addLogsToList(entry) {
+    const table = document.getElementById("logsTable");
+    const row = table.insertRow(table.tBodies[0].rows.length);
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
+
+    // Create p element for date
+    const p = document.createElement("P");
+    p.style.display = "inline-block";
+    p.innerText = entry["date"].toString();
+    cell1.appendChild(p);
+
+    // Create elements for urls
+    const div = document.createElement("DIV");
+    const p1 = document.createElement("P");
+    p1.innerText = entry["urlOriginal"].toString();
+    const p2 = document.createElement("P");
+    p2.innerText = " => ";
+    const p3 = document.createElement("P");
+    p3.innerText = entry["urlModified"].toString();
+    div.appendChild(p1);
+    div.appendChild(p2);
+    div.appendChild(p3);
+    cell2.appendChild(div);
+
+    // Crete elements for removed parameter
+    const p4 = document.createElement("P");
+    p4.innerText = entry["parameter"].join(", ");
+    cell3.appendChild(p4);
+}
