@@ -35,7 +35,8 @@ function opentab(tabid) {
 let parameterMap;
 function getMap(restoredSettings) {
     parameterMap = new Map(JSON.parse(restoredSettings.parameters))
-    parameterMap.forEach(addParamToList)
+    const mapAsc = new Map([...parameterMap.entries()].sort());
+    mapAsc.forEach(addParamToList)
 }
 
 // On opening the options page, fetch stored parameter map.
