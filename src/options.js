@@ -237,3 +237,13 @@ function addLogsToList(entry) {
     p4.innerText = entry["parameter"].join(", ");
     cell3.appendChild(p4);
 }
+
+// ---- Settings ----
+
+const clearLogsButton = document.getElementById("clearLogsButton");
+clearLogsButton.addEventListener("click" ,() => {
+    browser.storage.local.set({
+        logs: []
+    });
+    document.getElementById("logTable").innerHTML = "";
+});
