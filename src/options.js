@@ -207,7 +207,7 @@ browser.storage.onChanged.addListener(changeData => {
 });
 
 function addLogsToList(entry) {
-    const table = document.getElementById("logsTable");
+    const table = document.getElementById("logTable");
     const row = table.insertRow(table.tBodies[0].rows.length);
     const cell1 = row.insertCell(0);
     const cell2 = row.insertCell(1);
