@@ -29,4 +29,8 @@ const Keywords = ['utm_',
                   'pgtype',
                   'cid',
                   'sclid',
-                  "key-sofort_"];
+                  'key-sofort_',
+                  'campaign',
+                  'awc',
+                  'partner',
+                  'zanpid'];

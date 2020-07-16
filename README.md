@@ -21,7 +21,9 @@ _trk
 action
 algo_
 amp
+awc
 btsid
+campaign
 campid
 cid
 clickin
@@ -35,6 +37,7 @@ igshid
 key-sofort_
 mcID
 module
+partner
 pf_rd
 pgtype
 refID
@@ -48,6 +51,7 @@ wc_mc
 ws_ab_
 wt_
 yclid
+zanpid
 ```
 
 ## How to install?
@@ -73,12 +77,9 @@ Feel free to open an issue or make a pull request.
 
 # Next goals
 - [ ] Appropriate tests for parameter
-- [x] Option to opt out parameters for certain domains
-- [x] Logo
 - [ ] GitHub CI integration
 - [ ] CodeCov integeration
 - [ ] Popup
-- [X] Option to Enable/Disable certain parameter ([#11](https://github.com/Fload2000/RemoveLinkTracking/issues/11))
 - [ ] Indicator icon for modified URLs ([#12](https://github.com/Fload2000/RemoveLinkTracking/issues/12))
 - [ ] Release for Chrome
 - [ ] Option to set domain specific parameter ([#13](https://github.com/Fload2000/RemoveLinkTracking/issues/13))
