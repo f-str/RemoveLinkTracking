@@ -81,7 +81,7 @@ Feel free to open an issue or make a pull request.
 - [ ] CodeCov integeration
 - [ ] Popup
 - [ ] Indicator icon for modified URLs ([#12](https://github.com/Fload2000/RemoveLinkTracking/issues/12))
-- [ ] Release for Chrome
+- [ ] Release for chromium based browsers ([#22](https://github.com/Fload2000/RemoveLinkTracking/issues/22))
 - [ ] Option to set domain specific parameter ([#13](https://github.com/Fload2000/RemoveLinkTracking/issues/13))
 
 # License
