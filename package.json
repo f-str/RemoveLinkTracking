@@ -12,6 +12,7 @@
         "lint": "web-ext lint --source-dir src",
         "start": "web-ext run --source-dir src --browser-console",
         "debug": "web-ext run --source-dir src --browser-console --verbose",
+        "debug:chrome": "web-ext run --source-dir src --browser-console --verbose -t chromium",
         "debug-mobile": "web-ext run --target=firefox-android --source-dir src --browser-console --verbose",
         "test": "karma start --single-run --browsers FirefoxHeadless karma.conf.js",
         "test:watch": "karma start --no-single-run",
