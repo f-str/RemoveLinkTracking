@@ -5,6 +5,7 @@
         <title>Options - RemoveLinkTracking</title>
         <link rel="stylesheet" type="text/css" href="options.css">
         <link rel="stylesheet" type="text/css" href="slider.css"/>
+        <link rel="stylesheet" type="text/css" href="css/help.css"/>
     </head>
     <body>
         <!-- Tab links -->
@@ -42,13 +43,27 @@
         </div>
 
         <div id="exceptions" class="tabcontent">
-            <span>Enter all URLs which should allow link tracking (only one url per line):</span>
-            <form>
-                <section>
-                    <label for="exception-url"></label>
-                    <textarea id="exception-url" rows="10" cols="50"></textarea>
-                </section>
-            </form>
+            <span>Here you can add URL to disable the removal of their parameters completely. </span>
+            <div class="help">&#9432;
+                <span class="helptext">Use '*' to wildcard subdomains.</span>
+            </div>
+            <br>
+            <label>
+                <br>
+                <span style="font-size: large">https://</span>
+                <div class="help">
+                    <span style="font-size: large; color: gray">www.</span>
+                    <span class="helptext">URL with 'www.' is appended automatically.</span>
+                </div>
+                <input type="text" id="addExceptionInput" style="font-size: medium; width: 42%">
+                <button type="button" id="addExceptionButton">Add URL as exception</button>
+            </label>
+            <br><br>
+            <table id="exceptionTable" style="width:92%">
+                <tr>
+                    <th>Exception URLs</th>
+                </tr>
+            </table>
         </div>
 
         <div id="logs" class="tabcontent">

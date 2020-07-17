@@ -31,6 +31,10 @@ function opentab(tabid) {
     event.currentTarget.className += " active";
 }
 
+function onError(e) {
+    console.error(e);
+}
+
 // Get paramter map from local storage
 let parameterMap;
 function getMap(restoredSettings) {
@@ -160,31 +164,69 @@ function removeParameter(parameter) {
     location.reload();
 }
 
-const blockedHostsTextArea = document.querySelector("#exception-url");
+// ---- Exceptions ----
 
-// Store the currently selected settings using browser.storage.local.
-function storeSettings() {
-    let exceptions = blockedHostsTextArea.value.split("\n");
+let exceptions = [];
+function getExceptions(restoredSettings) {
+    exceptions = restoredSettings.exceptions;
+    exceptions.forEach(addExceptionsToTable);
+}
+
+// On opening the options page, fetch the excpetions
+browser.storage.local.get().then(getExceptions, onError);
+
+function addExceptionsToTable(entry) {
+    const table = document.getElementById("exceptionTable");
+    const row = table.insertRow(table.tBodies[0].rows.length);
+    const cell = row.insertCell(0);
+
+    // Create img for remove icon
+    const img = document.createElement("IMG");
+    img.setAttribute("src", "img/remove16.png");
+    img.style.display = "inline";
+    img.style.marginLeft = "5px";
+    img.style.marginRight = "10px";
+    img.addEventListener("click", ()=>{removeException(entry)});
+    cell.append(img);
+
+    // Url
+    const p = document.createElement("p");
+    p.style.display = "inline-block";
+    p.innerText = entry
+    cell.appendChild(p);
+}
+
+const addExceptionButton = document.getElementById("addExceptionButton");
+addExceptionButton.addEventListener("click", () => {addException()})
+
+function addException() {
+    const inputBox = document.getElementById("addExceptionInput");
+    let url = inputBox.value.trim();
+    if(url === '') return;
+    inputBox.value = '';
+    exceptions.push(url);
+    addExceptionsToTable(url);
+
+    if(!url.startsWith("www.")) {
+        url = "www." + url;
+        exceptions.push(url);
+        addExceptionsToTable(url);
+    }
+
+    storeExceptions();
+}
+
+function removeException(url) {
+    exceptions.remove(url);
+    storeExceptions();
+    location.reload();
+}
+
+function storeExceptions() {
     browser.storage.local.set({
-        exceptions
+        exceptions: exceptions
     });
 }
-
-// Update the options UI with the settings values retrieved from storage,
-// or the default settings if the stored settings are empty.
-function updateUI(restoredSettings) {
-    blockedHostsTextArea.value = restoredSettings.exceptions.join("\n");
-}
-
-function onError(e) {
-    console.error(e);
-}
-
-// On opening the options page, fetch stored settings and update the UI with them.
-browser.storage.local.get().then(updateUI, onError);
-
-// Whenever the contents of the textarea changes, save the new values
-blockedHostsTextArea.addEventListener("change", storeSettings);
 
 // ---- Logging ----
 
