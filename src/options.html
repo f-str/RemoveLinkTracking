@@ -43,25 +43,21 @@
         </div>
 
         <div id="exceptions" class="tabcontent">
-            <span>Here you can add URL to disable the removal of their parameters completely. </span>
+            <span>Here you can add hostnames to disable the removal of their parameters completely. </span>
             <div class="help">&#9432;
-                <span class="helptext">Use '*' to wildcard subdomains.</span>
+                <span class="helptext">All subdomains will be an exception, too.</span>
             </div>
             <br>
             <label>
                 <br>
                 <span style="font-size: large">https://</span>
-                <div class="help">
-                    <span style="font-size: large; color: gray">www.</span>
-                    <span class="helptext">URL with 'www.' is appended automatically.</span>
-                </div>
                 <input type="text" id="addExceptionInput" style="font-size: medium; width: 42%">
-                <button type="button" id="addExceptionButton">Add URL as exception</button>
+                <button type="button" id="addExceptionButton">Add hostname as exception</button>
             </label>
             <br><br>
             <table id="exceptionTable" style="width:92%">
                 <tr>
-                    <th>Exception URLs</th>
+                    <th>Exception hostnames</th>
                 </tr>
             </table>
         </div>

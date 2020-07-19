@@ -49,7 +49,7 @@ browser.storage.onChanged.addListener(changeData => {
 
 function removeTracking({url}) {
 
-    if (exceptions.indexOf((new URL(url).hostname)) !== -1) {
+    if (exceptions.some((entry) => {return new URL(url).hostname.endsWith(entry)})) {
         return
     } else if (!REMOVER.mayContain(url)) {
         return

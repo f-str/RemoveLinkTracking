@@ -5,8 +5,9 @@
 }
 
 .help .helptext {
+    font-size: x-small;
     visibility: hidden;
-    width: 240px;
+    width: 150px;
     background-color: #555;
     color: #fff;
     text-align: center;
@@ -16,7 +17,7 @@
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -120px;
+    margin-left: -75px;
     opacity: 0;
     transition: opacity 0.3s;
 }

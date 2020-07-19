@@ -207,12 +207,6 @@ function addException() {
     exceptions.push(url);
     addExceptionsToTable(url);
 
-    if(!url.startsWith("www.")) {
-        url = "www." + url;
-        exceptions.push(url);
-        addExceptionsToTable(url);
-    }
-
     storeExceptions();
 }
 
