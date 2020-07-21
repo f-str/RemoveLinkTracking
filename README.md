@@ -78,15 +78,12 @@ Feel free to open an issue or make a pull request.
 # Next goals
 - [ ] Appropriate tests for parameter
 - [ ] GitHub CI integration
-- [ ] CodeCov integeration
-- [ ] Popup
 - [ ] Indicator icon for modified URLs ([#12](https://github.com/Fload2000/RemoveLinkTracking/issues/12))
 - [ ] Release for chromium based browsers ([#22](https://github.com/Fload2000/RemoveLinkTracking/issues/22))
 - [ ] Option to set domain specific parameter ([#13](https://github.com/Fload2000/RemoveLinkTracking/issues/13))
+- [ ] Reorder directory structure
 
 # License
-
-This project is licensed under the MIT License
 
 ```
 MIT License
