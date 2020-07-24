@@ -69,7 +69,9 @@ class REMOVER {
 
         const urlString = parsedURL.toString();
 
-        log(url, urlString, params);
+        if (params.length > 0) {
+            log(url, urlString, params);
+        }
 
         // Add pageAction icon
         //browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
