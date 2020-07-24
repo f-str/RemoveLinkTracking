@@ -12,7 +12,8 @@
         "96": "img/icon96.png"
     },
     "options_ui": {
-        "page": "options.html"
+        "page": "options/options.html",
+        "open_in_tab": true
     },
     "background": {
         "scripts": ["util.js", "keywords.js", "remover.js", "background.js"]

@@ -89,7 +89,7 @@ function addParamToList(value, key) {
 
     // Create img for remove icon
     const img = document.createElement("IMG");
-    img.setAttribute("src", "img/remove16.png");
+    img.setAttribute("src", "../img/remove16.png");
     img.style.display = "inline";
     img.style.marginLeft = "5px";
     img.style.marginRight = "10px";
@@ -182,7 +182,7 @@ function addExceptionsToTable(entry) {
 
     // Create img for remove icon
     const img = document.createElement("IMG");
-    img.setAttribute("src", "img/remove16.png");
+    img.setAttribute("src", "../img/remove16.png");
     img.style.display = "inline";
     img.style.marginLeft = "5px";
     img.style.marginRight = "10px";
