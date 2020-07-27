@@ -18,7 +18,6 @@ If a parameter includes one of the following strings it will be removed:
 ```
 AffiliateID
 _trk
-action
 algo_
 amp
 awc
@@ -36,13 +35,11 @@ hmb_
 igshid
 key-sofort_
 mcID
-module
 partner
 pf_rd
 pgtype
 refID
 sclid
-service
 spm
 src
 tt_
