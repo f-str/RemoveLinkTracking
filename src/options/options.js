@@ -1,11 +1,19 @@
 const parameterTab = document.getElementById("parameterTab")
-parameterTab.addEventListener("click", () => {opentab('parameter')})
+parameterTab.addEventListener("click", () => {
+    opentab('parameter')
+})
 const exceptionstab = document.getElementById("exceptionsTab")
-exceptionstab.addEventListener("click", () => {opentab('exceptions')})
+exceptionstab.addEventListener("click", () => {
+    opentab('exceptions')
+})
 const logstab = document.getElementById("logsTab")
-logstab.addEventListener("click", () => {opentab('logs')})
+logstab.addEventListener("click", () => {
+    opentab('logs')
+})
 const settingstab = document.getElementById("settingsTab")
-settingstab.addEventListener("click", () => {opentab('settings')})
+settingstab.addEventListener("click", () => {
+    opentab('settings')
+})
 
 // Open parameter tab by default
 parameterTab.click()
@@ -31,46 +39,93 @@ function opentab(tabid) {
     event.currentTarget.className += " active";
 }
 
+// Get stored parameters from local storage
+browser.storage.local.get().then(loadParameter, onError);
+
+/**
+ * Prints out a given error. This should be used in .get().then(..) cases.
+ * @param e for the error object.
+ */
 function onError(e) {
     console.error(e);
 }
 
-// Get paramter map from local storage
+/**
+ * Loads needed parameter from local storage.
+ * @param stored for access to all stored parameter.
+ */
+function loadParameter(stored) {
+    setParameterMap(stored.parameters);
+    setActiveParameter(stored.active);
+    setOwnParam(stored.ownParam);
+    setExceptions(stored.exceptions);
+    setLogs(stored.logs);
+}
+
 let parameterMap;
-function getMap(restoredSettings) {
-    parameterMap = new Map(JSON.parse(restoredSettings.parameters))
+
+/**
+ * Stores the given parameterMap to a local variable, sorts them alphabetically and add them to the table.
+ * @param storedParameterMap for the stored parameter map.
+ */
+function setParameterMap(storedParameterMap) {
+    parameterMap = new Map(JSON.parse(storedParameterMap))
     const mapAsc = new Map([...parameterMap.entries()].sort());
     mapAsc.forEach(addParamToList)
 }
 
-// On opening the options page, fetch stored parameter map.
-browser.storage.local.get().then(getMap, onError);
-
-// Get active parameters from local storage
 let activeParams;
-function getActive(restoredSettings) {
-    activeParams = restoredSettings.active;
+
+/**
+ * Stores the given storedActiveParameter to a local variable.
+ * @param storedActiveParameter for the stored active parameter list.
+ */
+function setActiveParameter(storedActiveParameter) {
+    activeParams = storedActiveParameter;
 }
 
-// On opening the options page, fetch active parameters
-browser.storage.local.get().then(getActive, onError);
-
-
-// Get ownParam from local storage
 let ownParam;
-function getOwnParam(restoredSettings) {
-    ownParam = restoredSettings.ownParam.valueOf();
+
+/**
+ * Stores the given storedOwnParameter in a local variable and display the banner if the own parameter flag is set to {@code true}
+ * @param storedOwnParameter for the stored own parameter flag.
+ */
+function setOwnParam(storedOwnParameter) {
+    ownParam = storedOwnParameter.valueOf();
 
     // display banner only when ownParams flag is set
     document.getElementById("banner").style.display = ownParam ? "block" : "none";
 }
 
-// On opening the options page, fetch ownParam flag
-browser.storage.local.get().then(getOwnParam, onError);
+let exceptions = [];
+
+/**
+ * Stores the given storedExceptions list in a local variable and add them to the table.
+ * @param storedExceptions for the stored exceptions list.
+ */
+function setExceptions(storedExceptions) {
+    exceptions = storedExceptions;
+    exceptions.forEach(addExceptionsToTable);
+}
+
+let logs = [];
+
+/**
+ * Stores the given storedLogs list in a local variable in a reversed order and add them to the table.
+ * @param storedLogs for the stored logs list.
+ */
+function setLogs(storedLogs) {
+    logs = storedLogs;
+    logs.reverse();
+    logs.forEach(addLogsToList)
+}
+
 
 // Add click action to banner close button
 const bannerClose = document.getElementById("banner-close");
-bannerClose.addEventListener("click", () => {closeBanner()})
+bannerClose.addEventListener("click", () => {
+    closeBanner()
+})
 
 function closeBanner() {
     document.getElementById("banner").style.display = "none";
@@ -93,7 +148,9 @@ function addParamToList(value, key) {
     img.style.display = "inline";
     img.style.marginLeft = "5px";
     img.style.marginRight = "10px";
-    img.addEventListener("click", ()=>{removeParameter(key)})
+    img.addEventListener("click", () => {
+        removeParameter(key)
+    })
 
     // Create p element for key
     const p = document.createElement("P");
@@ -109,7 +166,9 @@ function addParamToList(value, key) {
     const input = document.createElement("INPUT");
     input.setAttribute("type", "checkbox");
     input.setAttribute("id", key);
-    input.addEventListener("click", ()=>{clicked(input.id)});
+    input.addEventListener("click", () => {
+        clicked(input.id)
+    });
     input.checked = value.valueOf();
 
     const span = document.createElement("SPAN");
@@ -134,12 +193,14 @@ function clicked(elementId) {
 }
 
 const addButton = document.getElementById("addButton");
-addButton.addEventListener("click", () => {addParameter()})
+addButton.addEventListener("click", () => {
+    addParameter()
+})
 
 function addParameter() {
     const inputBox = document.getElementById("addParameter");
     const param = inputBox.value.trim();
-    if(param === '') return;
+    if (param === '') return;
     inputBox.value = '';
     parameterMap.set(param, true);
     activeParams.push(param);
@@ -166,15 +227,6 @@ function removeParameter(parameter) {
 
 // ---- Exceptions ----
 
-let exceptions = [];
-function getExceptions(restoredSettings) {
-    exceptions = restoredSettings.exceptions;
-    exceptions.forEach(addExceptionsToTable);
-}
-
-// On opening the options page, fetch the excpetions
-browser.storage.local.get().then(getExceptions, onError);
-
 function addExceptionsToTable(entry) {
     const table = document.getElementById("exceptionTable");
     const row = table.insertRow(table.tBodies[0].rows.length);
@@ -186,7 +238,9 @@ function addExceptionsToTable(entry) {
     img.style.display = "inline";
     img.style.marginLeft = "5px";
     img.style.marginRight = "10px";
-    img.addEventListener("click", ()=>{removeException(entry)});
+    img.addEventListener("click", () => {
+        removeException(entry)
+    });
     cell.append(img);
 
     // Url
@@ -197,12 +251,14 @@ function addExceptionsToTable(entry) {
 }
 
 const addExceptionButton = document.getElementById("addExceptionButton");
-addExceptionButton.addEventListener("click", () => {addException()})
+addExceptionButton.addEventListener("click", () => {
+    addException()
+})
 
 function addException() {
     const inputBox = document.getElementById("addExceptionInput");
     let url = inputBox.value.trim();
-    if(url === '') return;
+    if (url === '') return;
     inputBox.value = '';
     exceptions.push(url);
     addExceptionsToTable(url);
@@ -223,17 +279,6 @@ function storeExceptions() {
 }
 
 // ---- Logging ----
-
-// Get active parameters from local storage
-let logs = [];
-function getLogs(restoredSettings) {
-    logs = restoredSettings.logs;
-    logs.reverse();
-    logs.forEach(addLogsToList)
-}
-
-// On opening the options page, fetch logs
-browser.storage.local.get().then(getLogs, onError);
 
 // Listen for changes in the logs
 browser.storage.onChanged.addListener(changeData => {
@@ -277,7 +322,7 @@ function addLogsToList(entry) {
 // ---- Settings ----
 
 const clearLogsButton = document.getElementById("clearLogsButton");
-clearLogsButton.addEventListener("click" ,() => {
+clearLogsButton.addEventListener("click", () => {
     browser.storage.local.set({
         logs: []
     });
