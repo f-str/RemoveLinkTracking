@@ -60,6 +60,8 @@ function loadParameter(stored) {
     setOwnParam(stored.ownParam);
     setExceptions(stored.exceptions);
     setLogs(stored.logs);
+    setShowPageAction(stored.showPageAction);
+    setLogging(stored.logging);
 }
 
 let parameterMap;
@@ -120,6 +122,29 @@ function setLogs(storedLogs) {
     logs.forEach(addLogsToList)
 }
 
+let logging;
+
+/**
+ * Store the given storedLogging flag in a local variable and set the checkbox according to it.
+ * @param storedLogging for the stored flag.
+ */
+function setLogging(storedLogging) {
+    logging = storedLogging;
+
+    document.getElementById("enableLogsCheckbox").checked = logging;
+}
+
+let showPageAction;
+
+/**
+ * Store the given storedShowPageAction flag in a local variable and set the checkbox according to it.
+ * @param storedShowPageAction for the stored flag.
+ */
+function setShowPageAction(storedShowPageAction) {
+    showPageAction = storedShowPageAction;
+
+    document.getElementById("enablePageActionCheckbox").checked = showPageAction;
+}
 
 // Add click action to banner close button
 const bannerClose = document.getElementById("banner-close");
@@ -321,6 +346,7 @@ function addLogsToList(entry) {
 
 // ---- Settings ----
 
+// Clear logs button
 const clearLogsButton = document.getElementById("clearLogsButton");
 clearLogsButton.addEventListener("click", () => {
     browser.storage.local.set({
@@ -328,3 +354,31 @@ clearLogsButton.addEventListener("click", () => {
     });
     document.getElementById("logTable").innerHTML = "";
 });
+
+// Logging checkbox
+const enableLogsCheckbox = document.getElementById("enableLogsCheckbox");
+
+function setEnableLogsCheckbox() {
+    logging = !logging;
+    browser.storage.local.set({
+        logging: logging
+    });
+}
+
+enableLogsCheckbox.addEventListener("check", () => {
+    setEnableLogsCheckbox();
+})
+
+// Page action checkbox
+const enablePageActionCheckbox = document.getElementById("enablePageActionCheckbox");
+
+function setEnablePageAction() {
+    showPageAction = !showPageAction;
+    browser.storage.local.set({
+        showPageAction: showPageAction
+    });
+}
+
+enablePageActionCheckbox.addEventListener("check", () => {
+    setEnablePageAction();
+})

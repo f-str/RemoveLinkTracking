@@ -1,5 +1,7 @@
 let keywords = [];
 let logs = [];
+let showPageAction = false;
+let logging = true;
 
 // Get the stored list of active keywords
 browser.storage.local.get(data => {
@@ -9,15 +11,27 @@ browser.storage.local.get(data => {
     if (data.logs) {
         logs = data.logs;
     }
+    if (data.showPageAction) {
+        showPageAction = data.showPageAction;
+    }
+    if (data.logging) {
+        logging = data.logging;
+    }
 });
 
 // Listen for changes in the active list and logs
 browser.storage.onChanged.addListener(changeData => {
-    if(changeData.active != null) {
+    if (changeData.active != null) {
         keywords = changeData.active.newValue;
     }
     if (changeData.logs != null) {
         logs = changeData.logs.newValue;
+    }
+    if (changeData.showPageAction != null) {
+        showPageAction = changeData.showPageAction.newValue;
+    }
+    if(changeData.logging != null) {
+        logging = changeData.logging.newValue;
     }
 });
 
@@ -32,6 +46,14 @@ function log(urlOriginal, urlModified, params) {
     browser.storage.local.set({
         logs: logs
     });
+}
+
+function displayPageAction() {
+    browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+        let tab = tabs[0].id; // Safe to assume there will only be one result
+        browser.pageAction.show(tab);
+    }, console.error);
+
 }
 
 class REMOVER {
@@ -69,15 +91,14 @@ class REMOVER {
 
         const urlString = parsedURL.toString();
 
-        if (params.length > 0) {
+        if (logging && params.length > 0) {
             log(url, urlString, params);
         }
 
         // Add pageAction icon
-        //browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
-        //    let tab = tabs[0].id; // Safe to assume there will only be one result
-        //    browser.pageAction.show(tab);
-        //}, console.error);
+        if (showPageAction) {
+            displayPageAction();
+        }
 
         return urlString;
     }
