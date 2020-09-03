@@ -15,19 +15,31 @@ for(let keyword of Keywords) {
 // Set the default empty list on installation.
 browser.runtime.onInstalled.addListener((details) => {
     if (details.reason === 'install') {
+        let active = Keywords;
+        let deletedParams = deleted_Keywords;
+        let logs = [];
+
+        browser.storage.local.get(data => {
+            if (data.deletedParams) {
+                deletedParams = deletedParams.concat(data.deletedParams).unique();
+            }
+            if (data.active) {
+                active = active.concat(data.active).unique().filter((el) => !deletedParams.includes(el));
+            }
+            if (data.logs) {
+                logs = data.logs;
+            }
+        });
+
         browser.storage.local.set({
             exceptions: [],
             parameters: JSON.stringify(Array.from(paramMap.entries())),
-            active: Keywords,
+            active: active,
             ownParam: false,
             logging: true,
-            logs: [],
-            showPageAction: false
-        });
-    } else {
-        // TODO -> comment in
-        browser.storage.local.set({
-            //logs: []
+            logs: logs,
+            showPageAction: false,
+            deletedParams: deletedParams
         });
     }
 });

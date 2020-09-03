@@ -31,3 +31,7 @@ const Keywords = ['utm_',
                   'awc',
                   'partner',
                   'zanpid'];
+
+const deleted_Keywords = ['action',
+                          'service',
+                          'module'];

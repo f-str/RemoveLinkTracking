@@ -57,6 +57,7 @@ function onError(e) {
 function loadParameter(stored) {
     setParameterMap(stored.parameters);
     setActiveParameter(stored.active);
+    setDeletedParams(stored.deletedParams);
     setOwnParam(stored.ownParam);
     setExceptions(stored.exceptions);
     setLogs(stored.logs);
@@ -84,6 +85,16 @@ let activeParams;
  */
 function setActiveParameter(storedActiveParameter) {
     activeParams = storedActiveParameter;
+}
+
+let deletedParams;
+
+/**
+ * Stores the given storedDeletedParameter to a local variable.
+ * @param storedDeletedParameter for the stored active parameter list.
+ */
+function setDeletedParams(storedDeletedParameter) {
+    deletedParams = storedDeletedParameter;
 }
 
 let ownParam;
@@ -229,12 +240,16 @@ function addParameter() {
     inputBox.value = '';
     parameterMap.set(param, true);
     activeParams.push(param);
+    if (deletedParams.includes(param)) {
+        deletedParams.remove(param);
+    }
     addParamToList(true, param);
     document.getElementById("banner").style.display = "block";
 
     browser.storage.local.set({
         parameters: JSON.stringify(Array.from(parameterMap)),
         active: activeParams,
+        deletedParams: deletedParams,
         ownParam: true
     })
 }
@@ -242,10 +257,12 @@ function addParameter() {
 function removeParameter(parameter) {
     parameterMap.delete(parameter);
     activeParams.remove(parameter);
+    deletedParams.push(parameter);
 
     browser.storage.local.set({
         parameters: JSON.stringify(Array.from(parameterMap)),
         active: activeParams,
+        deletedParams: deletedParams
     })
     location.reload();
 }
@@ -365,7 +382,7 @@ function setEnableLogsCheckbox() {
     });
 }
 
-enableLogsCheckbox.addEventListener("check", () => {
+enableLogsCheckbox.addEventListener("click", () => {
     setEnableLogsCheckbox();
 })
 
@@ -379,6 +396,6 @@ function setEnablePageAction() {
     });
 }
 
-enablePageActionCheckbox.addEventListener("check", () => {
+enablePageActionCheckbox.addEventListener("click", () => {
     setEnablePageAction();
 })
