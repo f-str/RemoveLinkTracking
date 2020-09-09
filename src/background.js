@@ -27,7 +27,7 @@ browser.runtime.onInstalled.addListener((details) => {
                 active = active.concat(data.active).unique().filter((el) => !deletedParams.includes(el));
             }
             if (data.parameters) {
-                paramMap = new Map(JSON.parse(data.parameters))
+                paramMap = new Map(JSON.parse(data.parameters));
             }
             if (data.logs) {
                 logs = data.logs;
@@ -44,28 +44,28 @@ browser.runtime.onInstalled.addListener((details) => {
             if (data.showPageAction) {
                 showPageAction = data.showPageAction.valueOf();
             }
-        });
 
-        // Add new Keywords to parameterMap
-        for(let keyword of Keywords) {
-            if (!paramMap.has(keyword)) {
-                paramMap.set(keyword, true);
+            // Add new Keywords to parameterMap
+            for(let keyword of Keywords) {
+                if (!paramMap.has(keyword)) {
+                    paramMap.set(keyword, true);
+                }
             }
-        }
 
-        // Remove deleted keywords from parameter map
-        deleted_Keywords.forEach(key => paramMap.delete(key))
+            // Remove deleted keywords from parameter map
+            deleted_Keywords.forEach(key => paramMap.delete(key))
 
-        // Store new values
-        browser.storage.local.set({
-            exceptions: exceptions,
-            parameters: JSON.stringify(Array.from(paramMap.entries())),
-            active: active,
-            ownParam: ownParam,
-            logging: logging,
-            logs: logs,
-            showPageAction: showPageAction,
-            deletedParams: deletedParams
+            // Store new values
+            browser.storage.local.set({
+                exceptions: exceptions,
+                parameters: JSON.stringify(Array.from(paramMap.entries())),
+                active: active,
+                ownParam: ownParam,
+                logging: logging,
+                logs: logs,
+                showPageAction: showPageAction,
+                deletedParams: deletedParams
+            });
         });
     }
 });
