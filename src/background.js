@@ -14,7 +14,7 @@ for(let keyword of Keywords) {
 
 // Set the default empty list on installation.
 browser.runtime.onInstalled.addListener((details) => {
-    if (details.reason === 'install') {
+    if (details.reason === 'install' || details.reason === 'update') {
         let active = Keywords;
         let deletedParams = deleted_Keywords;
         let logs = [];
