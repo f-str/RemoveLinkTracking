@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Options - RemoveLinkTracking</title>
+        <link rel="stylesheet" type="text/css" href="options.css">
+        <link rel="stylesheet" type="text/css" href="../css/slider.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/help.css"/>
+    </head>
+    <body>
+        <!-- Tab links -->
+        <div class="tab">
+            <button id="parameterTab" class="tablinks">Parameter</button>
+            <button id="exceptionsTab" class="tablinks">Exceptions</button>
+            <button id="logsTab" class="tablinks">Logs</button>
+            <button id="settingsTab" class="tablinks">Settings</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="parameter" class="tabcontent">
+            <div id="banner">
+                <img id="banner-close" src="../img/remove16.png" alt="close banner">
+                <p>Looks like you have added your own new parameters. Let's share them with all the other users!
+                    Notify the author of the addon to add them to the default list.</p>
+                <a href="mailto:fload2000@protonmail.com?subject=RLT-Parameter-Request">Send a mail to fload2000@protonmail.com</a>
+                <br>
+                <a href="https://github.com/Fload2000/RemoveLinkTracking/issues/new/choose">Open an issue on GitHub</a>
+            </div>
+            <br>
+            <label>
+                <span>Add new own parameter: </span>
+                <input type="text" id="addParameter">
+                <button type="button" id="addButton">Add Parameter</button>
+            </label>
+            <br><br>
+
+            <table id="paramTable" style="width:100%">
+                <tr>
+                    <th>Parameter-Keyword</th>
+                    <th>Active</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="exceptions" class="tabcontent">
+            <span>Here you can add hostnames to disable the removal of their parameters completely. </span>
+            <div class="help">&#9432;
+                <span class="helptext">All subdomains will be an exception, too.</span>
+            </div>
+            <br>
+            <label>
+                <br>
+                <span style="font-size: large">https://</span>
+                <input type="text" id="addExceptionInput" style="font-size: medium; width: 42%">
+                <button type="button" id="addExceptionButton">Add hostname as exception</button>
+            </label>
+            <br><br>
+            <table id="exceptionTable" style="width:92%">
+                <tr>
+                    <th>Exception hostnames</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="logs" class="tabcontent">
+            <table id="logTable" style="width:100%">
+                <tr>
+                    <th>Date</th>
+                    <th>Url</th>
+                    <th>Removed Parameter</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="settings" class="tabcontent">
+            <h3>Logging</h3>
+            <button type="button" id="clearLogsButton">Clear Logs</button>
+            <div>
+                <input type="checkbox" id="enableLogsCheckbox" name="enableLogs">
+                <label for="enableLogsCheckbox">Enable Logging</label>
+            </div>
+            <br>
+            <h3>Page Action</h3>
+            <div>
+                <input type="checkbox" id="enablePageActionCheckbox" name="enablePageAction" >
+                <label for="enablePageActionCheckbox">Enable page action icon in URL bar</label>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../util.js"></script>
+        <script type="text/javascript" src="options.js"></script>
+    </body>
+</html>

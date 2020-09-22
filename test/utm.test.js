@@ -1,3 +1,5 @@
+//const expect = chai.expect;
+
 describe('utm.remove', () => {
   [
     {

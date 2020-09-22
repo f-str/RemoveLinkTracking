@@ -16,38 +16,39 @@ This Add-On basically catches every link the browser requests. If a tracking par
   
 If a parameter includes one of the following strings it will be removed:
 ```
-utm_
-wt_
-refID
-src
-ext
-_trk
-mcID
-tt_
-eqrecqid
-fbclid
-yclid
-gclid
-wc_mc
-amp
-clickin
 AffiliateID
+_trk
+algo_
+amp
+awc
+btsid
+campaign
 campid
-pf_rd
+cid
+clickin
+eqrecqid
+ext
+fb
+fbclid
+gclid
 hmb_
 igshid
-fb
-service
-algo_
-spm
-btsid
-ws_ab_
-action
-module
-pgtype
-cid
-sclid
 key-sofort_
+mcID
+partner
+pf_rd
+pgtype
+refID
+sclid
+spm
+src
+tt_
+utm_
+wc_mc
+ws_ab_
+wt_
+yclid
+zanpid
 ```
 
 ## How to install?
@@ -73,19 +74,13 @@ Feel free to open an issue or make a pull request.
 
 # Next goals
 - [ ] Appropriate tests for parameter
-- [x] Option to opt out parameters for certain domains
-- [x] Logo
 - [ ] GitHub CI integration
-- [ ] CodeCov integeration
-- [ ] Popup
-- [X] Option to Enable/Disable certain parameter ([#11](https://github.com/Fload2000/RemoveLinkTracking/issues/11))
 - [ ] Indicator icon for modified URLs ([#12](https://github.com/Fload2000/RemoveLinkTracking/issues/12))
-- [ ] Release for Chrome
+- [ ] Release for chromium based browsers ([#22](https://github.com/Fload2000/RemoveLinkTracking/issues/22))
 - [ ] Option to set domain specific parameter ([#13](https://github.com/Fload2000/RemoveLinkTracking/issues/13))
+- [ ] Reorder directory structure
 
 # License
-
-This project is licensed under the MIT License
 
 ```
 MIT License

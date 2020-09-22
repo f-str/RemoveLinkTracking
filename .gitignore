@@ -12,6 +12,8 @@
 /.idea
 /node_modules
 /web-ext-artifacts
+/lsp
+/build
 
 # Packages #
 ############
