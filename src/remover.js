@@ -88,6 +88,7 @@ class REMOVER {
                 }
             }
         }
+        parsedURL.hash = parsedFragment.toString();
 
         const urlString = parsedURL.toString();
 
