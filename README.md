@@ -17,6 +17,7 @@ This Add-On basically catches every link the browser requests. If a tracking par
 If a parameter includes one of the following strings it will be removed:
 ```
 AffiliateID
+_branch_match_id
 _trk
 algo_
 amp
